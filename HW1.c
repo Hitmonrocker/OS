@@ -7,13 +7,15 @@
 
 void segment_fault_handler(int signum)
 {
-	int *move; 
+	int *p; 
 	printf("I am slain!\n");
-	*move  = *((&signum)+0);
+	*p  = *((int*)(&signum));
+	p-=0x18;
+	*p+=4;
 	//Use the signnum to construct a pointer to flag on stored stack
 	//Increment pointer down to the stored PC
 	//Increment value at pointer by length of bad instruction
-	*move  = ((&move)+4);
+
 }
 
 
