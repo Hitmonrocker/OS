@@ -1,6 +1,10 @@
 // Student name: Vincent Taylor
 // Ilab machine used: pwd.cs.rutgers.edu
 
+//Preconditions: Appropriate C libraries,-m32, iLab machines
+// Postconditions: Generates Segmentation Fault for
+//                               signal handler self-hack
+
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,10 +28,10 @@ int main()
 
 	signal(SIGSEGV, segment_fault_handler);
 
-
 	r2 = *( (int *) 0 );
 
 	printf("I live again!\n");
+
 	return 0;
 }
 //
